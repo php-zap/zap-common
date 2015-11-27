@@ -7,14 +7,14 @@ namespace Zap\Common;
  * @package Zap\Common
  * @author Antonio Lopez <antonio.lopez.zapata@gmail.com>
  */
-interface Map
+interface IMapBehaviour
 {
     /**
      * Creates a new map from an array.
      * @param array $array The data for the new map.
-     * @return Map The new instance.
+     * @return IMapBehaviour The new instance.
      */
-    public static function createFromArray(array $array): Map;
+    public static function createFromArray(array $array): IMapBehaviour;
 
     /**
      * Merges the given array to the existing map.

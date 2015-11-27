@@ -7,7 +7,7 @@ namespace Zap\Common;
  * @package Zap\Common
  * @author Antonio Lopez <antonio.lopez.zapata@gmail.com>
  */
-class FilteredMap implements Map
+class FilteredMap implements IMapBehaviour
 {
     /**
      * Map data.
@@ -15,7 +15,7 @@ class FilteredMap implements Map
      */
     private $data = [];
 
-    public static function createFromArray(array $array): Map
+    public static function createFromArray(array $array): IMapBehaviour
     {
         $filteredMap = new FilteredMap();
         $filteredMap->setAll($array);
@@ -63,12 +63,12 @@ class FilteredMap implements Map
     }
 
     /**
-     * Gets a number from the map.
+     * Gets a float value from the map.
      * @param string $key The key to the desired value.
      * @param float|null $default Default value to return.
      * @return float The value for the given key.
      */
-    public function getNumber(string $key, float $default = null): float
+    public function getFloat(string $key, float $default = null): float
     {
         return floatval($this->get($key, $default));
     }

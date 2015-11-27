@@ -117,34 +117,34 @@ class FilteredMapTest extends PHPUnit_Framework_TestCase
         $this->assertSame($data, 0);
     }
 
-    public function testCanGetNumber()
+    public function testCanGetFloat()
     {
         $map = FilteredMap::createFromArray(['one' => '1.2e-1']);
-        $data = $map->getNumber('one');
+        $data = $map->getFloat('one');
 
         $this->assertSame($data, 1.2e-1);
     }
 
-    public function testCanGetNumberWithDefault()
+    public function testCanGetFloatWithDefault()
     {
         $map = FilteredMap::createFromArray(['one' => '1']);
-        $data = $map->getNumber('two', 2.23);
+        $data = $map->getFloat('two', 2.23);
 
         $this->assertSame($data, 2.23);
     }
 
-    public function testCanGetNumberWithoutDefault()
+    public function testCanGetFloatWithoutDefault()
     {
         $map = FilteredMap::createFromArray(['one' => '1']);
-        $data = $map->getNumber('two');
+        $data = $map->getFloat('two');
 
         $this->assertSame($data, 0.0);
     }
 
-    public function testCanGetNumberCannotConvert()
+    public function testCanGetFloatCannotConvert()
     {
         $map = FilteredMap::createFromArray(['one' => 'uno']);
-        $data = $map->getNumber('one');
+        $data = $map->getFloat('one');
 
         $this->assertSame($data, 0.0);
     }
